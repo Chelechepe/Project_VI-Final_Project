@@ -54,13 +54,13 @@ Following the extraction of the html with selenium, we need to determine what we
 Example of browser html inspect for info:
 <br/>
 
-![local_picture](./images/inspect_html.jpg)
+![local_picture](./images/Inspect_html.jpg)
 <br/>
 
 Once the information has been extracted and cleaned the text to only have the desired information we temporarly store each colum in a list. meaning that we will have to convert them into a data frame using command for zip list, followed by pandas.dataframe to create a table as following:
 <br/>
 
-![local_picture](./images/sample_cryptolist.jpg)
+![local_picture](./images/Sample_cryptolist.jpg)
 
 <br/>
 
