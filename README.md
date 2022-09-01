@@ -78,7 +78,6 @@ To get started we need to get familiar with some concepts:
     Price = Market Capital / Circulating Supply
 <br/>
 
-
 Knowing this we can use the mathematical rule of three to find out how mucha market capital needs to move in order to get a coin to a specific value. in our particular case we want marginal prices that can spike to the amount of $1. so we create set colum to value $1 and create a column with the new market capital.
 <br/>
 
@@ -97,27 +96,121 @@ We want coins who's:
     Variation between new and old market cap <= 1000
 <br/>
 
-Afte we apply this filters we get as a result a list of 387 coins, we can now use wisualization tools to examin any particular tendency and behaviour that can be of our interest so that we can futher filter this list to 10 to 20 coins in which we can invest.
+Dataframe once we hace created the calculated field and filters:
 
+![local_picture](./images/altcoincolumns2.jpg)
+
+After we applied this filters we get as a result a list of 387 coins, we can now use wisualization tools to examin any particular tendency and behaviour that can be of our interest so that we can futher filter this list to 10 to 20 coins in which we can invest.
+<br/>
 
 #
-## Visualization and Storytelling:
+## Visualization:
 #
+
+To analize visualy eventhough we can use python, i decided to make a csv file so that i could be imported in Tablau and have a more dynamic analysis. for the couins i want a display of the porportion of the market capital, circulating supply, count of coins, list of those coins, current coin market price, proportion of market capital increase and a calculated field of potential projected increase of value. 
+<br/>
+
+The analisis can be seen at the followin URL
+<br/>
 
 https://public.tableau.com/app/profile/edgard.cuadra/viz/AltCoins_16617715752970/Alt_coinDash?publish=yes
+
+The filter we want to apply are those coins that have the posibility of 5 folding our initial investment if they happen to reach the value of $1.00 and we also want coins whose price is under a threshold of $0.15 per current value. 
+
+Visualization before further filter:
 <br/>
 
 ![local_picture](./images/tableau_before.jpg)
 <br/>
 
+Vizualization after filter:
+<br/>
+
 ![local_picture](./images/tableau_after.jpg)
 <br/>
 
+Now we have found the optimal currencies that we can invest in, now lets see if we can use a predictive model with the time series.  
+<br/>
+
 #
-## Predictive Model and Stacionality:
+## Predictive Model and Sesonality:
 #
+
+The information we extracted with the webscrappe only gives us general characteristics of the coin so we need to find a way to get the time series of said coins.
+<br/>
+
+Using a Yahoo Finances API we can extract the time series of a specific coin and analize its behaviour over it life cicle an try to undestand.
+<br/>
+
+First we do a query of one coin, in this case ADA - cardano in currency convetion to USD so that we can analize in a standard convertion. out of this query we get the Adjuested Closing price, the Closing price, High and Low price of the day, the price in which it Open and the Volume of currency that moved that day. the Developer (Free Version) access to the API only allows us to extract daily time series and not hourly so we are limited to the type of analysis that we can conduct. it would be optimal to have a minute movement of the tickers value over time. 
+<br/>
+
+Sample of the data we extracted:
+
+![local_picture](./images/yahoofinance_API.jpg)
+
+First lets use the closing price of the coin to evaluate its behaiviour over time, inorder to understand the behaviour of this graph we will include:
+
+    Moving averagae envelope (MAE) for periods 15
+    Moving averagae envelope (MAE) for periods 30
+    Moving averagae envelope (MAE) for periods 45
+    Tendency line
+    Sesonality
+    Residuals
+    Expanding window
+
+expanding window 
+
+Bellow we can see one of the alternate coins that has a moving average and tendancy for 1 year for 2022 as an example. the expanding window give uses a compounded average of the data as the time series progreses giving us a compounded average which show a general tendency. in this case the tendency is the behaviour of a rolling average of period one. 
+<br/>
+
+    If the Closing value > than Rolling window the market is **Bullish** 
+
+    If the Closing value < than Rolling window the market is **Bearish**
+
+![local_picture](./images/ADA2019rolling.jpg)
+
+This graph shows us how the market is behaving but wont give us much information of how the market will behave in the future. its better to have a general understanding on how its behaving that blindly try to just invest in a coin. 
+<br/>
+
+Overall the general trend is a decline over time showing that the market is bearish and has flattende out.its always recomended to read the latest news of a currency to understand why there has been such negative tendencies to avoid making a decision that might be seen as risky.
+<br/>
+
+For a better undestanding of the behaviour we can decompose the time series to see if there are any clear tendencies, sesonality or residuals that might give us a general behaviour of how the time series is behaving and to see if there is a distinct pattern that we can use to make predictions:
+<br/>
+
+Decomposition:
+
+![local_picture](./images/ADAdicompose.jpg)
+<br/>
+
+We apply the sesonality to our yearly graphs to see how they are represented in the general yearly graphs. as it can bee seen in the following graph there seems to be no gerenral seonality or behaviour that marks a yearly tendency. this indicates that the market is volatile and unpredictable since there is no repetitive pattern. 
+<br/>
+
+![local_picture](./images/ADAcomparison2019.jpg)
+<br/>
+
+Lets see how this affects a predictive model since the seasonality is negligible and is seems that the residuals are low except for the year 2021 where there was alot of residuals according tho the decomposition. 
+<br/>
+
+Using the Pycaret machine learning model we set it up so that it uses a time series to make a predictive model. this library allows us to iterate over several predictive models and we select the best one in accordance to our least error mesure of our choice (MAE, MSE, RMSE, R2)
+<br/>
+
+![local_picture](./images/predictivemodels.jpg)
+<br/>
+
+as seen in our comparative models we have a very peculiar R2 being negative which indicates that our model isnt very precise. we are selecting our model in accordance to which ever has the lowest Moving Average Envelope (MAE) in this case being the K Neighbor Regressor. 
+<br/>
+
+Once we run our best model and graph it we have the following result:
+<br/>
+
+![local_picture](./images/ADAprediction.jpg)
+<br/>
 
 
 #
 ## Conclusion and Recomendations:
 #
+
+![local_picture](./images/WSB.jpg)
