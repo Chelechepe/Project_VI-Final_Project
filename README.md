@@ -100,12 +100,18 @@ We want coins who's:
 Afte we apply this filters we get as a result a list of 387 coins, we can now use wisualization tools to examin any particular tendency and behaviour that can be of our interest so that we can futher filter this list to 10 to 20 coins in which we can invest.
 
 
-
 #
 ## Visualization and Storytelling:
 #
 
+https://public.tableau.com/app/profile/edgard.cuadra/viz/AltCoins_16617715752970/Alt_coinDash?publish=yes
+<br/>
 
+![local_picture](./Images/tableau_before.jpg)
+<br/>
+
+![local_picture](./Images/tableau_after.jpg)
+<br/>
 
 #
 ## Predictive Model and Stacionality:
