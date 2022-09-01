@@ -208,9 +208,14 @@ Once we run our best model and graph it we have the following result:
 ![local_picture](./images/ADAprediction.jpg)
 <br/>
 
-
 #
 ## Conclusion and Recomendations:
 #
+
+The predictive model for time series has no independent variables that afect the dependant so it needs tendency, sesonality and residuals to make an acurate prediction since the seasonality is negligible and is seems that the residuals are low the output of the model is the global average and it outpust a straight line.
+
+this makes sences since its imposible to make a prediction on a volatile market since its son unpredictable, otherwise it would be easy to get rich just by learning predictive models. 
+
+in this our hypothesis is disproven and we can use the data to understand past behaviours in conjunction with news related to the crypto alternate coin but we can not predict future behaviour using past behaviours since there is no clear tendency.
 
 ![local_picture](./images/WSB.jpg)
