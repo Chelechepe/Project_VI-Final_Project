@@ -7,7 +7,9 @@
 ### Date: September 1st 2022
 
 #
+
 ![local_picture](./Images/altcoins.jpg)
+
 #
 ## Hypothesis:
 #
@@ -21,11 +23,7 @@ Using Data Analitics can we find potential altcoins that have the condition or p
 
 
 
-<br/>
-
-<p align="center">
-  <img width="500" height="400" src= ./Images/Selenium_bot_WS.gif
-</p>
+![local_picture](./Images/Selenium_bot_WS.gif)
 <br/>
 
 #
