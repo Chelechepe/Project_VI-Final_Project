@@ -8,7 +8,7 @@
 
 #
 
-![local_picture](./Images/altcoins.jpg)
+![local_picture](./images/altcoins.jpg)
 
 #
 ## Hypothesis:
@@ -44,7 +44,7 @@ Code for web scrapping and scrolling selenium:
 Example of what the bot does:
 <br/>
 
-![local_picture](./Images/Selenium_bot_WS.gif)
+![local_picture](./images/Selenium_bot_WS.gif)
 
 <br/>
 
@@ -54,13 +54,13 @@ Following the extraction of the html with selenium, we need to determine what we
 Example of browser html inspect for info:
 <br/>
 
-![local_picture](./Images/inspect_html.jpg)
+![local_picture](./images/inspect_html.jpg)
 <br/>
 
 Once the information has been extracted and cleaned the text to only have the desired information we temporarly store each colum in a list. meaning that we will have to convert them into a data frame using command for zip list, followed by pandas.dataframe to create a table as following:
 <br/>
 
-![local_picture](./Images/sample_cryptolist.jpg)
+![local_picture](./images/sample_cryptolist.jpg)
 
 <br/>
 
@@ -107,10 +107,10 @@ Afte we apply this filters we get as a result a list of 387 coins, we can now us
 https://public.tableau.com/app/profile/edgard.cuadra/viz/AltCoins_16617715752970/Alt_coinDash?publish=yes
 <br/>
 
-![local_picture](./Images/tableau_before.jpg)
+![local_picture](./images/tableau_before.jpg)
 <br/>
 
-![local_picture](./Images/tableau_after.jpg)
+![local_picture](./images/tableau_after.jpg)
 <br/>
 
 #
