@@ -205,9 +205,6 @@ as seen in our comparative models we have a very peculiar R2 being negative whic
 Once we run our best model and graph it we have the following result:
 <br/>
 
-![local_picture](./images/ADAprediction.jpg)
-<br/>
-
 #
 ## Conclusion and Recomendations:
 #
